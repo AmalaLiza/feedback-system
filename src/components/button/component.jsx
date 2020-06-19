@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import styles from "./styles.js";
 
-class Button extends React.Component {
+class Button extends Component {
 	constructor(props) {
 		super(props);
 		this.state = { value: "" };
@@ -9,12 +9,12 @@ class Button extends React.Component {
 	}
 
 	handleClick(event) {
-		console.log("on click");
+		this.props.handleClick();
 	}
 
 	render() {
 		const { buttonText } = this.props;
-		return <button onChange={this.handleClick}> {buttonText}</button>;
+		return <button onClick={this.handleClick}> {buttonText}</button>;
 	}
 }
 export default Button;

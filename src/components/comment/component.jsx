@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import styles from "./styles.js";
 
-class App extends Component {
+class Comment extends Component {
 	render() {
-		return <div style={styles.container}>Feedback system</div>;
+		return <div style={styles.container}>Comment</div>;
 	}
 }
-export default App;
+export default Comment;

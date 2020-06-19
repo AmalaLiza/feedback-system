@@ -1,9 +1,16 @@
 import React, { Component } from "react";
 import styles from "./styles.js";
+import Rating from "react-rating";
 
-class App extends Component {
+class StarRating extends Component {
 	render() {
-		return <div style={styles.container}>Feedback system</div>;
+		return (
+			<Rating
+				style={styles.star}
+				emptySymbol="fa fa-star-o fa-2x"
+				fullSymbol="fa fa-star fa-2x"
+			/>
+		);
 	}
 }
-export default App;
+export default StarRating;
