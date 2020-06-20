@@ -6,9 +6,14 @@ class Results extends Component {
 		super(props);
 	}
 	render() {
+		const { comments = [] } = this.props;
+		console.log("comments", comments);
 		return (
 			<div>
 				<h1>Results</h1>
+				{comments.map((comment) => (
+					<div key={comment.email}>{comment.comments}</div>
+				))}
 			</div>
 		);
 	}

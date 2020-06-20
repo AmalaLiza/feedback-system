@@ -5,8 +5,12 @@ import { CommentsStoreActions } from "../../actions/action-creator";
 
 const mapStateToProps = (state) => state;
 
-export const mapDispatchToProps = {
-	mount: CommentsStoreActions.loadComments,
+const mapDispatchToProps = (dispatch) => {
+	return {
+		// dispatching actions returned by action creators
+		onSubmitForm: (payload) =>
+			dispatch(CommentsStoreActions.loadComments(payload)),
+	};
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(withRouter(Home));

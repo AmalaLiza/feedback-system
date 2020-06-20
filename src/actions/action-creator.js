@@ -5,17 +5,13 @@ import {
 } from "./action-constants";
 
 export const CommentsStoreActions = {
-	loadComments: ({ name, email, comment }) => ({
+	loadComments: (payload) => ({
 		type: ACTION_LOAD_COMMENTS,
-		name,
-		email,
-		comment,
+		payload,
 	}),
-	loadCommentsSuccess: ({ name, email, comment }) => ({
-		type: ACTION_LOAD_COMMENTS,
-		name,
-		email,
-		comment,
+	loadCommentsSuccess: (payload) => ({
+		type: ACTION_LOAD_COMMENTS_SUCCESS,
+		payload,
 	}),
 	loadCommentsError: (error) => ({
 		type: ACTION_LOAD_COMMENTS_ERROR,

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import styles from "./styles.css";
 import Button from "../../components/button/component";
 import Input from "../../components/input/component";
-import { useHistory } from "react-router-dom";
+import { useHistory, withRouter } from "react-router-dom";
 import StarRating from "../../components/rating/component";
 
 function HomeButton({ onSubmitForm }) {
@@ -10,6 +10,7 @@ function HomeButton({ onSubmitForm }) {
 
 	function onSubmit() {
 		history.push("/results");
+		onSubmitForm();
 	}
 
 	return <Button buttonText="Submit" handleClick={onSubmit} />;
@@ -18,12 +19,13 @@ function HomeButton({ onSubmitForm }) {
 class Home extends Component {
 	constructor(props) {
 		super(props);
-		this.setState = {
+		this.state = {
 			name: "",
 			email: "",
 			comment: "",
 		};
 		this.onSubmitForm = this.onSubmitForm.bind(this);
+		this.setFormValues = this.setFormValues.bind(this);
 	}
 
 	onSubmitForm() {
@@ -41,7 +43,7 @@ class Home extends Component {
 					type="input"
 					label="Name"
 					handleChange={(value) =>
-						this.props.setFormValues({
+						this.setFormValues({
 							name: value,
 						})
 					}
@@ -51,7 +53,7 @@ class Home extends Component {
 					type="email"
 					label="Email Id"
 					handleChange={(value) =>
-						this.props.setFormValues({
+						this.setFormValues({
 							email: value,
 						})
 					}
@@ -61,7 +63,7 @@ class Home extends Component {
 					type="text"
 					label="Comment"
 					handleChange={(value) =>
-						this.props.setFormValues({
+						this.setFormValues({
 							comment: value,
 						})
 					}
@@ -74,4 +76,4 @@ class Home extends Component {
 		);
 	}
 }
-export default Home;
+export default withRouter(Home);

@@ -2,4 +2,6 @@
  * Exporting all sagas used for the applications.
  * * */
 
-export default [];
+import loadCommentsSaga from "./load-comments";
+
+export default [loadCommentsSaga];

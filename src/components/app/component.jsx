@@ -1,7 +1,7 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
-import Results from "../../pages/results/component";
-import Home from "../../pages/home/component";
+import Results from "../../pages/results/container";
+import Home from "../../pages/home/container";
 import "../../global.css";
 
 export default function App() {

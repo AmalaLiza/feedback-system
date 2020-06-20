@@ -1,5 +1,5 @@
-import Results from "./pages/results/component";
-import Home from "./pages/home/component";
+import Results from "./pages/results/container";
+import Home from "./pages/home/container";
 
 // Some folks find value in a centralized route config.
 // A route config is just data. React is great at mapping
