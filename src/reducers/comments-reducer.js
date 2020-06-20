@@ -49,8 +49,8 @@ const initialState = [
 /**
  * commentsReducer to handle succes and error on load comments actions.
  * return default state otherwise.
- * @param state
- * @param action
+ * @param {object} state
+ * @param {object} action
  */
 export default function commentsReducer(
 	state = initialState,

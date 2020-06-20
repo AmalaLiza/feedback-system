@@ -4,7 +4,7 @@ import Results from "./component";
 /**
  * mapStateToProps to map redux state as props
  * comments from redux state is send to Results component as props.
- * @param {*} state
+ * @param {object} state
  */
 const mapStateToProps = (state) => ({
 	comments: state.comments,

@@ -9,7 +9,7 @@ import CommentBox from "../../components/comment-box/component";
 /**
  * Results component to render comments
  * CommentBox is used to render each comment.
- * @param {*} comments
+ * @param {object} comments
  */
 const Results = ({ comments = [] }) => (
 	<div className={styles.container}>

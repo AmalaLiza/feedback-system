@@ -4,7 +4,7 @@ import { CommentsStoreActions } from "../../actions/action-creator";
 
 /**
  * mapDispatchToProps to dispatch actions
- * @param {*} dispatch
+ * @param {object} dispatch
  */
 const mapDispatchToProps = (dispatch) => {
 	return {

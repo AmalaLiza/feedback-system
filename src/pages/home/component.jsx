@@ -6,6 +6,7 @@ import Input from "../../components/input/component";
 import { useHistory, withRouter } from "react-router-dom";
 import StarRating from "../../components/rating/component";
 import Title from "../../components/title/component";
+import validate from "../../utils/validations";
 
 /**
  * Function component to access history object for router redirection
@@ -47,10 +48,16 @@ class Home extends Component {
 	};
 
 	validateForm = (history) => {
-		const { name, email, comment } = this.state;
+		const { name, comment } = this.state;
+		let email = this.state.email;
+
 		if (!!name && !!email && !!comment) {
-			this.props.onSubmitForm(this.state);
-			history.push("/results");
+			if (!validate.email(email)) {
+				alert("Please enter a valid email id.");
+			} else {
+				this.props.onSubmitForm(this.state);
+				history.push("/results");
+			}
 		} else {
 			this.setState({
 				error: { name: !name, email: !email, comment: !comment },
