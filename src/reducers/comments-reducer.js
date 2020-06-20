@@ -58,7 +58,7 @@ export default function commentsReducer(
 ) {
 	switch (type) {
 		case ACTION_LOAD_COMMENTS_SUCCESS: {
-			payload.id = state.length;
+			payload.id = state.length + 1;
 			return [payload, ...state];
 		}
 

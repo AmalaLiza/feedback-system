@@ -21,7 +21,7 @@ const Results = ({ comments = [] }) => (
 				))}
 			</ul>
 			<div className={styles.graphWrapper}>
-				<Chart />
+				<Chart chartData={comments} />
 			</div>
 		</div>
 	</div>

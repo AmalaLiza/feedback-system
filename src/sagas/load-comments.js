@@ -1,7 +1,6 @@
 import { all, put, takeLatest } from "redux-saga/effects";
 import { CommentsStoreActions } from "../actions/action-creator";
 import { ACTION_LOAD_COMMENTS } from "../actions/action-constants";
-import JSON_DATA from "./response.json";
 
 /**
  * Makes GET request

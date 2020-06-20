@@ -14,58 +14,14 @@ import {
  * Props are
  */
 
-const data = [
-	{
-		name: "Page A",
-		uv: 4000,
-		pv: 2400,
-		amt: 2400,
-	},
-	{
-		name: "Page B",
-		uv: 3000,
-		pv: 1398,
-		amt: 2210,
-	},
-	{
-		name: "Page C",
-		uv: 2000,
-		pv: 9800,
-		amt: 2290,
-	},
-	{
-		name: "Page D",
-		uv: 2780,
-		pv: 3908,
-		amt: 2000,
-	},
-	{
-		name: "Page E",
-		uv: 1890,
-		pv: 4800,
-		amt: 2181,
-	},
-	{
-		name: "Page F",
-		uv: 2390,
-		pv: 3800,
-		amt: 2500,
-	},
-	{
-		name: "Page G",
-		uv: 3490,
-		pv: 4300,
-		amt: 2100,
-	},
-];
-
 export default class Chart extends PureComponent {
 	render() {
+		const { chartData } = this.props;
 		return (
 			<AreaChart
 				width={500}
 				height={400}
-				data={data}
+				data={chartData}
 				fillOpacity={1}
 				margin={{
 					top: 10,
@@ -74,13 +30,13 @@ export default class Chart extends PureComponent {
 					bottom: 0,
 				}}>
 				<CartesianGrid strokeDasharray="3 3" />
-				<XAxis dataKey="name" />
-				<YAxis />
+				<XAxis dataKey="commentDate" />
+				<YAxis ticks={[0, 1, 2, 3, 4, 5]} domain={[0, 5]} />
 				<Tooltip />
 				<Area
 					fillOpacity={0.8}
 					type="monotone"
-					dataKey="uv"
+					dataKey="rating"
 					stroke="#8884d8"
 					fill="url(#colorUv)"
 				/>
