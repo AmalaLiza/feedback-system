@@ -10,19 +10,22 @@ import JSON_DATA from "./response.json";
 export function* loadComments(action) {
 	try {
 		const { payload } = action;
-		// Service call URL should be given here.
+		// Service call URL should be given here, in case data is being requested through API.
 		// const response = yield call(request, URL, { method: 'GET' });
-		const response = JSON_DATA;
-
-		if (response && response.comments.length !== 0) {
-			yield put(
-				CommentsStoreActions.loadCommentsSuccess([
-					payload,
-					...response.comments,
-				])
-			);
-		}
+		yield put(
+			CommentsStoreActions.loadCommentsSuccess({
+				name: payload.name,
+				email: payload.email,
+				comment: payload.comment,
+				rating: payload.rating,
+				commentDate: new Date().getTime(),
+			})
+		);
 	} catch (error) {
+		/**
+		 * Error action to be performed in case of error from API request.
+		 * But no API requeest in current scenario
+		 */
 		yield put(CommentsStoreActions.loadCommentsError(error));
 	}
 }

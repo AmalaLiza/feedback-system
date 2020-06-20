@@ -2,8 +2,10 @@ import { connect } from "react-redux";
 import Home from "./component";
 import { CommentsStoreActions } from "../../actions/action-creator";
 
-const mapStateToProps = (state) => state;
-
+/**
+ * mapDispatchToProps to dispatch actions
+ * @param {*} dispatch
+ */
 const mapDispatchToProps = (dispatch) => {
 	return {
 		// dispatching actions returned by action creators
@@ -12,4 +14,8 @@ const mapDispatchToProps = (dispatch) => {
 	};
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Home);
+/**
+ * Home container
+ * Home component is connected here to store to dispatch loadComments actions
+ */
+export default connect(null, mapDispatchToProps)(Home);

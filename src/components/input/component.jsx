@@ -1,9 +1,18 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 import classnames from "classnames";
 import errorIcon from "../../images/close.svg";
 import styles from "./styles.css";
 
+/**
+ * Input component
+ * Props are error, label, type, placeHolder, handleChange, classes
+ */
 class Input extends Component {
+	/**
+	 * States for Input
+	 * error, value (input value), active (if input is active then true)
+	 */
 	state = { error: this.props.error, value: "", active: false };
 	static getDerivedStateFromProps(nextProps, prevState) {
 		if (nextProps.error !== prevState.error) {
@@ -16,6 +25,9 @@ class Input extends Component {
 		this.props.handleChange(event.target.value);
 	};
 
+	/**
+	 * onFocus: setting active state for label floating.
+	 */
 	onFocus = () => {
 		if (!this.state.value || !this.state.active) {
 			this.setState({ active: !this.state.active });
@@ -60,4 +72,35 @@ class Input extends Component {
 		);
 	}
 }
+
+Input.propTypes = {
+	/**
+	 * error: Error validation to show error in input
+	 */
+	error: PropTypes.bool,
+	/**
+	 * type: type of input
+	 */
+	type: PropTypes.string,
+	/**
+	 * handleChange: Function to handle click
+	 */
+	handleChange: PropTypes.func.isRequired,
+	/**
+	 * label: text to be rendered as label for input
+	 */
+	label: PropTypes.string.isRequired,
+	/**
+	 * classes: additional classes to be applied on input
+	 */
+	classes: PropTypes.shape({
+		active: PropTypes.string,
+		container: PropTypes.string,
+	}),
+	/**
+	 * placeHolder: Placeholdeer for input
+	 */
+	placeHolder: PropTypes.string,
+};
+
 export default Input;

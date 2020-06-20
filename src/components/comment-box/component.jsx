@@ -1,7 +1,12 @@
 import React from "react";
+import PropTypes from "prop-types";
 import styles from "./styles.css";
 import star from "../../images/star.svg";
 
+/**
+ * CommentBox component
+ * Props are comment object
+ */
 const CommentBox = ({ comment }) => (
 	<li className={styles.commentSection}>
 		<header className={styles.header}>
@@ -9,7 +14,7 @@ const CommentBox = ({ comment }) => (
 			<span className={styles.name}>{comment.name}</span>
 			<div className={styles.metadata}>
 				<div className={styles.commentDate}>
-					{new Date(comment.comment_date).toDateString()}
+					{new Date(comment.commentDate).toDateString()}
 				</div>
 				<div className={styles.commentDate}>
 					<img className={styles.star} src={star} />
@@ -26,4 +31,18 @@ const CommentBox = ({ comment }) => (
 		</div>
 	</li>
 );
+
+CommentBox.propTypes = {
+	/**
+	 * comment: comment object to be rendered.
+	 */
+	comment: PropTypes.shape({
+		email: PropTypes.string,
+		name: PropTypes.string,
+		comment: PropTypes.string,
+		rating: PropTypes.number,
+		commentDate: PropTypes.number,
+	}).isRequired,
+};
+
 export default CommentBox;

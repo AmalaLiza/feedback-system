@@ -6,8 +6,10 @@ import configureStore from "./store";
 import { Provider } from "react-redux";
 import { HashRouter } from "react-router-dom";
 
-// Configure store
+// Configure store called to get store object.
 const store = configureStore();
+
+// Connects store to app and binds react components to root.
 render(
 	<Provider store={store}>
 		<HashRouter>

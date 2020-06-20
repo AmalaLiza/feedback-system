@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 import styles from "./styles.css";
 import Button from "../../components/button/component";
 import Input from "../../components/input/component";
@@ -6,23 +7,29 @@ import { useHistory, withRouter } from "react-router-dom";
 import StarRating from "../../components/rating/component";
 import Title from "../../components/title/component";
 
+/**
+ * Function component to access history object for router redirection
+ * @param {onSubmitForm}
+ */
 function HomeButton({ onSubmitForm }) {
-	const history = useHistory();
+	const history = useHistory(); //useHistory hooks to access historry object.
 
 	function onSubmit() {
 		onSubmitForm(history);
 	}
 
 	return (
-		<Button
-			buttonText="Submit"
-			handleClick={onSubmit}
-			className={styles.button}
-		/>
+		<Button buttonText="Submit" onClick={onSubmit} className={styles.button} />
 	);
 }
 
+/**
+ * Home component
+ */
 class Home extends Component {
+	/**
+	 * Home component state
+	 */
 	state = {
 		name: "",
 		email: "",
@@ -114,4 +121,11 @@ class Home extends Component {
 		);
 	}
 }
+
+Home.propTypes = {
+	/**
+	 * onSubmitForm: Function called when form is submitted to dispatch action.
+	 */
+	onSubmitForm: PropTypes.func.isRequired,
+};
 export default withRouter(Home);

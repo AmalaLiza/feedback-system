@@ -1,4 +1,5 @@
 import React, { PureComponent } from "react";
+import PropTypes from "prop-types";
 import {
 	AreaChart,
 	Area,
@@ -7,6 +8,11 @@ import {
 	CartesianGrid,
 	Tooltip,
 } from "recharts";
+
+/**
+ * Chart component
+ * Props are
+ */
 
 const data = [
 	{
@@ -93,3 +99,5 @@ export default class Chart extends PureComponent {
 		);
 	}
 }
+
+Chart.propTypes = {};

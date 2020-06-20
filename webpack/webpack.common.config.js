@@ -2,7 +2,11 @@ const path = require("path");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const CopyWebpackPlugin = require("copy-webpack-plugin");
 
+/**
+ * Common webpack configuration for production and dev
+ */
 module.exports = {
 	entry: {
 		entry: "./src/index.js",
@@ -17,6 +21,9 @@ module.exports = {
 			filename: "[name].[hash].css",
 			chunkFilename: "[id].[hash].css",
 		}),
+		new CopyWebpackPlugin({
+			patterns: [{ from: "src/images/favicon.png", to: "favicon.png" }],
+		}),
 	],
 	output: {
 		filename: "[name].bundle.js",
@@ -25,6 +32,7 @@ module.exports = {
 	resolve: {
 		extensions: [".js", ".jsx", ".css"],
 	},
+
 	module: {
 		rules: [
 			{
