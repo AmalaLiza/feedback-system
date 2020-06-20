@@ -78,7 +78,7 @@ export default class Chart extends PureComponent {
 				<YAxis />
 				<Tooltip />
 				<Area
-					fillOpacity={0.8}
+					fillOpacity={1}
 					type="monotone"
 					dataKey="uv"
 					stroke="#8884d8"
@@ -86,10 +86,10 @@ export default class Chart extends PureComponent {
 				/>
 				<defs>
 					<linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
-						<stop offset="5%" stopColor="#e052a0" stopOpacity={1} />
+						<stop offset="5%" stopColor="#194368" stopOpacity={1} />
 						<stop
 							offset="95%"
-							stopColor="#f15c41"
+							stopColor="#0e1241"
 							stopOpacity={1}
 							fillOpacity={1}
 						/>

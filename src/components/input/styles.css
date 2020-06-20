@@ -1,7 +1,7 @@
 .container {
 	display: flex;
 	width: 100%;
-	color: #e4558f;
+	color: rgb(12, 17, 66);
 	background-color: #ebecff;
 	padding: 20px;
 	border-radius: 15px;
