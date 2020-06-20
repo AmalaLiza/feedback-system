@@ -1,8 +1,8 @@
 import { ACTION_LOAD_COMMENTS_SUCCESS } from "../actions/action-constants";
 
-const initialState = fromJS({
+const initialState = {
 	comments: {},
-});
+};
 
 export default function commentsReducer(state = initialState, action) {
 	switch (action.type) {
