@@ -4,12 +4,15 @@ import { render } from "react-dom";
 import App from "./components/app/container";
 import configureStore from "./store";
 import { Provider } from "react-redux";
+import { HashRouter } from "react-router-dom";
 
 // Configure store
 const store = configureStore();
 render(
 	<Provider store={store}>
-		<App />
+		<HashRouter>
+			<App />
+		</HashRouter>
 	</Provider>,
 	document.getElementById("root")
 );

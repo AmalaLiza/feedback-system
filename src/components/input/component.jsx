@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import styles from "./styles.js";
+import styles from "./styles.css";
 
-class Input extends React.Component {
+class Input extends Component {
 	constructor(props) {
 		super(props);
 		this.state = { value: "" };
@@ -11,19 +11,23 @@ class Input extends React.Component {
 
 	handleChange(event) {
 		this.setState({ value: event.target.value });
+		this.props.handleChange(event.target.value);
 	}
 
 	render() {
-		const { label, type } = this.props;
+		const { label, type, placeHolder } = this.props;
 		return (
-			<>
-				<label>{label}</label>
+			<div className={styles.container}>
+				<label className={styles.label}>{label}</label>
+
 				<input
+					className={styles.input}
 					type={type}
+					placeholder={placeHolder}
 					value={this.state.value}
 					onChange={this.handleChange}
 				/>
-			</>
+			</div>
 		);
 	}
 }

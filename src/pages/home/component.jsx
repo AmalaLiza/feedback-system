@@ -1,35 +1,77 @@
 import React, { Component } from "react";
-import styles from "./styles.js";
+import styles from "./styles.css";
 import Button from "../../components/button/component";
 import Input from "../../components/input/component";
-import { useHistory, withRouter } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import StarRating from "../../components/rating/component";
 
-function HomeButton() {
-	let history = useHistory();
+function HomeButton({ onSubmitForm }) {
+	const history = useHistory();
 
 	function onSubmit() {
 		history.push("/results");
 	}
 
-	return <Button buttonText="buttonText" handleClick={onSubmit} />;
+	return <Button buttonText="Submit" handleClick={onSubmit} />;
 }
 
 class Home extends Component {
 	constructor(props) {
 		super(props);
+		this.setState = {
+			name: "",
+			email: "",
+			comment: "",
+		};
+		this.onSubmitForm = this.onSubmitForm.bind(this);
+	}
+
+	onSubmitForm() {
+		this.props.onSubmitForm(this.state);
+	}
+
+	setFormValues(valueObject) {
+		this.setState(valueObject);
 	}
 
 	render() {
 		return (
-			<div style={styles.container}>
-				<h1>Feedback system</h1>
-				<Input type="input" label="Name" />
-				<Input type="email" label="Email" />
-				<HomeButton />
+			<div className={styles.container}>
+				<Input
+					type="input"
+					label="Name"
+					handleChange={(value) =>
+						this.props.setFormValues({
+							name: value,
+						})
+					}
+					placeHolder="Please Enter your namee"
+				/>
+				<Input
+					type="email"
+					label="Email Id"
+					handleChange={(value) =>
+						this.props.setFormValues({
+							email: value,
+						})
+					}
+					placeHolder="Please Enter your emailId"
+				/>
+				<Input
+					type="text"
+					label="Comment"
+					handleChange={(value) =>
+						this.props.setFormValues({
+							comment: value,
+						})
+					}
+					placeHolder="Please Enter your feedback"
+				/>
 				<StarRating />
+
+				<HomeButton buttonText="Submit" onSubmitForm={this.onSubmitForm} />
 			</div>
 		);
 	}
 }
-export default withRouter(Home);
+export default Home;

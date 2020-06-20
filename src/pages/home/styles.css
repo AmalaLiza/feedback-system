@@ -1,0 +1,13 @@
+.container {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	margin: auto;
+	width: 800px;
+	height: 700px;
+	background-color: #1f364d;
+	border-radius: 15px;
+	overflow: hidden;
+	padding: 72px 150px 25px 150px;
+	box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);
+}

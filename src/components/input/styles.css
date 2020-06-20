@@ -1,0 +1,15 @@
+.container {
+	display: flex;
+	justify-content: space-between;
+	width: 50%;
+	margin: auto;
+	padding-bottom: 10px;
+}
+
+.label {
+	font-size: 25px;
+}
+
+.input {
+	font-size: 25px;
+}
