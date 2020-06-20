@@ -4,7 +4,7 @@ import Results from "../../pages/results/container";
 import Home from "../../pages/home/container";
 import "../../global.css";
 
-export default function App() {
+const App = () => {
 	/*
 		A <Switch> looks through all its children <Route>
 		elements and renders the first one whose path
@@ -18,4 +18,5 @@ export default function App() {
 			<Route path="/results" component={Results} />
 		</Switch>
 	);
-}
+};
+export default App;

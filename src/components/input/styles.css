@@ -1,15 +1,48 @@
 .container {
 	display: flex;
-	justify-content: space-between;
-	width: 50%;
-	margin: auto;
-	padding-bottom: 10px;
+	width: 100%;
+	color: #e4558f;
+	background-color: #ebecff;
+	padding: 20px;
+	border-radius: 15px;
+	margin-bottom: 20px;
+	align-items: center;
+	border: solid 1px #ccc;
+	position: relative;
 }
 
 .label {
-	font-size: 25px;
+	position: absolute;
+	font-size: 18px;
+	font-weight: bold;
+	transition: all 0.2s;
+	touch-action: manipulation;
 }
 
 .input {
-	font-size: 25px;
+	font-size: 18px;
+	font-weight: bold;
+	padding: 7px 0;
+	color: #2f5e8c;
+	width: 100%;
+}
+
+.error {
+	border: solid 3px #e24c4b;
+}
+
+.errorIcon {
+	width: 15px;
+	height: 15px;
+}
+
+.container input {
+	border: none;
+	font-size: 16px;
+	outline: 0;
+}
+
+.active {
+	font-size: 16px;
+	transform: translate(0, -22px) scale(1);
 }

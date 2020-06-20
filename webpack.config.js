@@ -42,7 +42,7 @@ module.exports = {
 				},
 			},
 			{
-				test: /\.(html|png|jpe?g|gif|svg|eot|ttf|woff|woff2)$/i,
+				test: /\.(html|png|jpe?g|gif|eot|ttf|woff|woff2)$/i,
 				loader: "url-loader",
 				options: {
 					limit: 8192,

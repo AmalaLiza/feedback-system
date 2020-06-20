@@ -4,72 +4,110 @@ import Button from "../../components/button/component";
 import Input from "../../components/input/component";
 import { useHistory, withRouter } from "react-router-dom";
 import StarRating from "../../components/rating/component";
+import Title from "../../components/title/component";
 
 function HomeButton({ onSubmitForm }) {
 	const history = useHistory();
 
 	function onSubmit() {
-		history.push("/results");
-		onSubmitForm();
+		onSubmitForm(history);
 	}
 
-	return <Button buttonText="Submit" handleClick={onSubmit} />;
+	return (
+		<Button
+			buttonText="Submit"
+			handleClick={onSubmit}
+			className={styles.button}
+		/>
+	);
 }
 
 class Home extends Component {
-	constructor(props) {
-		super(props);
-		this.state = {
-			name: "",
-			email: "",
-			comment: "",
-		};
-		this.onSubmitForm = this.onSubmitForm.bind(this);
-		this.setFormValues = this.setFormValues.bind(this);
-	}
+	state = {
+		name: "",
+		email: "",
+		comment: "",
+		rating: 0,
+		error: {
+			name: false,
+			email: false,
+			comment: false,
+		},
+	};
 
-	onSubmitForm() {
-		this.props.onSubmitForm(this.state);
-	}
+	onSubmitForm = (history) => {
+		this.validateForm(history);
+	};
 
-	setFormValues(valueObject) {
+	validateForm = (history) => {
+		const { name, email, comment } = this.state;
+		if (!!name && !!email && !!comment) {
+			this.props.onSubmitForm(this.state);
+			history.push("/results");
+		} else {
+			this.setState({
+				error: { name: !name, email: !email, comment: !comment },
+			});
+		}
+	};
+
+	setFormValues = (valueObject) => {
 		this.setState(valueObject);
-	}
+	};
 
 	render() {
+		const { rating, error } = this.state;
 		return (
 			<div className={styles.container}>
+				<Title title="GIVE US FEEDBACK" />
+
 				<Input
+					id="input"
 					type="input"
+					error={error.name}
 					label="Name"
 					handleChange={(value) =>
 						this.setFormValues({
 							name: value,
 						})
 					}
-					placeHolder="Please Enter your namee"
 				/>
 				<Input
 					type="email"
+					id="email"
 					label="Email Id"
+					error={error.email}
 					handleChange={(value) =>
 						this.setFormValues({
 							email: value,
 						})
 					}
-					placeHolder="Please Enter your emailId"
 				/>
 				<Input
-					type="text"
-					label="Comment"
+					type="comment"
+					id="comment"
+					label="Comments"
+					error={error.comment}
+					classes={{
+						container: styles.commentInput,
+						active: styles.activeCommentInput,
+					}}
 					handleChange={(value) =>
 						this.setFormValues({
 							comment: value,
 						})
 					}
-					placeHolder="Please Enter your feedback"
 				/>
-				<StarRating />
+				<StarRating
+					label="Overall Rating"
+					initialRating={rating}
+					onRatingClick={(value) =>
+						this.setFormValues({
+							rating: value || 1, //Default value of rating set as 1, if user doesn't rate.
+						})
+					}
+					className={styles.rating}
+				/>
 
 				<HomeButton buttonText="Submit" onSubmitForm={this.onSubmitForm} />
 			</div>

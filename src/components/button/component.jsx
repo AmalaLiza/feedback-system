@@ -1,24 +1,13 @@
-import React, { Component } from "react";
+import React from "react";
+import classnames from "classnames";
 import styles from "./styles.css";
 
-class Button extends Component {
-	constructor(props) {
-		super(props);
-		this.state = { value: "" };
-		this.handleClick = this.handleClick.bind(this);
-	}
+const Button = ({ handleClick, buttonText, className }) => (
+	<button
+		className={classnames(styles.button, className)}
+		onClick={handleClick}>
+		{buttonText}
+	</button>
+);
 
-	handleClick(event) {
-		this.props.handleClick();
-	}
-
-	render() {
-		const { buttonText } = this.props;
-		return (
-			<button className={styles.button} onClick={this.handleClick}>
-				{buttonText}
-			</button>
-		);
-	}
-}
 export default Button;

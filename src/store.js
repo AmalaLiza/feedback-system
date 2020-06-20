@@ -1,27 +1,14 @@
-import { createStore, applyMiddleware, compose } from "redux";
+import { createStore, applyMiddleware } from "redux";
 import createSagaMiddleware from "redux-saga";
 import createReducer from "./reducers";
 import sagas from "./sagas";
+import { composeWithDevTools } from "redux-devtools-extension";
 
 // Create middleware for sagas.
 const sagaMiddleware = createSagaMiddleware();
 
 export default function configureStore() {
-	const composeEnhancers =
-		process.env.NODE_ENV !== "production" &&
-		typeof window === "object" &&
-		window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
-			? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({
-					// shouldHotReload: false
-					deserializeState: (state) =>
-						Object.keys(state).reduce((previous, current) => {
-							previous[current] = state[current];
-							return previous;
-						}, {}),
-			  })
-			: compose;
-
-	const enhancer = composeEnhancers(applyMiddleware(sagaMiddleware));
+	const enhancer = composeWithDevTools(applyMiddleware(sagaMiddleware));
 
 	// Creating the redux-store from reducers and enhancers.
 	const store = createStore(createReducer(), enhancer);
@@ -29,7 +16,5 @@ export default function configureStore() {
 	// Run each saga
 	sagas.forEach((saga) => sagaMiddleware.run(saga));
 	store.runSaga = sagaMiddleware.run;
-	// Async reducer registry
-	store.asyncReducers = {};
 	return store;
 }

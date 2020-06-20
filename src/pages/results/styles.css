@@ -1,0 +1,22 @@
+.container {
+	padding: 50px;
+	width: 100%;
+	height: 100%;
+}
+
+.wrapper {
+	display: flex;
+}
+
+.commentWrapper {
+	display: flex;
+	flex-wrap: wrap;
+	width: 70%;
+	max-height: 990px;
+	overflow: auto;
+}
+
+.graphWrapper {
+	display: flex;
+	flex-wrap: wrap;
+}

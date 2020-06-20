@@ -1,32 +1,61 @@
 import React, { Component } from "react";
+import classnames from "classnames";
+import errorIcon from "../../images/close.svg";
 import styles from "./styles.css";
 
 class Input extends Component {
-	constructor(props) {
-		super(props);
-		this.state = { value: "" };
-
-		this.handleChange = this.handleChange.bind(this);
+	state = { error: this.props.error, value: "", active: false };
+	static getDerivedStateFromProps(nextProps, prevState) {
+		if (nextProps.error !== prevState.error) {
+			return { error: nextProps.error };
+		} else return null;
 	}
 
-	handleChange(event) {
+	onChange = (event) => {
 		this.setState({ value: event.target.value });
 		this.props.handleChange(event.target.value);
-	}
+	};
+
+	onFocus = () => {
+		if (!this.state.value || !this.state.active) {
+			this.setState({ active: !this.state.active });
+		}
+	};
 
 	render() {
-		const { label, type, placeHolder } = this.props;
+		const { label, type, placeHolder, classes = {} } = this.props;
+		const { value, error, active } = this.state;
 		return (
-			<div className={styles.container}>
-				<label className={styles.label}>{label}</label>
+			<div
+				className={classnames(classes.container, styles.container, {
+					[styles.error]: !!error && !active,
+				})}>
+				<label
+					htmlFor={label}
+					className={classnames(
+						{ [classes.active || styles.active]: !!active },
+						styles.label
+					)}>
+					{label}
+				</label>
 
 				<input
+					id={label}
+					onFocus={this.onFocus}
+					onBlur={this.onFocus}
 					className={styles.input}
 					type={type}
 					placeholder={placeHolder}
-					value={this.state.value}
-					onChange={this.handleChange}
+					value={value}
+					onChange={this.onChange}
 				/>
+				{!!error && !active && (
+					<img
+						className={styles.errorIcon}
+						src={errorIcon}
+						title="Please enter missing value."
+					/>
+				)}
 			</div>
 		);
 	}

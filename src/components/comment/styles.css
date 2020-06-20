@@ -1,0 +1,75 @@
+.commentSection {
+	border-radius: 5px;
+	overflow: hidden;
+	width: 350px;
+	padding: 10px;
+	box-shadow: 0 0 12px rgba(0, 0, 0, 0.05);
+}
+
+.header {
+	background-color: #162d43;
+	padding: 20px;
+}
+
+.avatar {
+	height: 36px;
+	width: 36px;
+	font-weight: bold;
+	justify-content: center;
+	display: inline-flex;
+	align-items: center;
+	border-radius: 50%;
+	background-image: linear-gradient(to right, #e052a0, #f15c41);
+}
+
+.name {
+	color: #b3cce6;
+	font-size: 18px;
+	padding-left: 10px;
+	font-weight: bold;
+}
+
+.metadata {
+	color: #63809c;
+	display: flex;
+	font-size: 13px;
+	margin-top: 2px;
+	padding-left: 40px;
+}
+
+.star {
+	margin-right: 5px;
+	width: 15px;
+	height: 15px;
+}
+
+.commentDate {
+	align-items: center;
+	display: flex;
+	white-space: nowrap;
+	color: #b4cce5;
+	content: "·";
+	margin: 0 6px;
+}
+
+.commentContent {
+	color: #a7bfd7;
+	font-size: 15px;
+	line-height: 1.4em;
+	height: 220px;
+	overflow: auto;
+	margin-top: 4px;
+	padding: 20px;
+	position: relative;
+	background-color: #162d43;
+	transition: background-color 140ms;
+}
+
+.email {
+	margin-bottom: 8px;
+	font-weight: bold;
+}
+
+.emailLabel {
+	color: #bc4c72;
+}

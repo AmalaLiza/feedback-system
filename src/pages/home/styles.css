@@ -3,11 +3,35 @@
 	align-items: center;
 	flex-direction: column;
 	margin: auto;
-	width: 800px;
-	height: 700px;
-	background-color: #1f364d;
+	width: 1000px;
+	height: 800px;
+	background-color: #162d43;
 	border-radius: 15px;
 	overflow: hidden;
-	padding: 72px 150px 25px 150px;
+	padding: 32px 100px 25px 100px;
 	box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);
+	justify-content: space-evenly;
+	margin-top: 150px;
+}
+
+.button {
+	background-image: linear-gradient(to right, #e052a0, #f15c41);
+	color: #fff;
+	cursor: pointer;
+	font-size: 17px;
+	font-weight: 600;
+	white-space: nowrap;
+}
+
+.rating {
+	color: #e25398;
+}
+
+.commentInput {
+	height: 100px;
+}
+
+.activeCommentInput {
+	font-size: 16px !important;
+	transform: translate(0, -28px) scale(1);
 }

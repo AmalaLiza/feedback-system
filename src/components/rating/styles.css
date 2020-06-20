@@ -1,3 +1,10 @@
 .star {
-	color: yellow;
+	padding: 0 10px;
+}
+
+.label {
+	text-transform: uppercase;
+	font-size: 15px;
+	font-weight: bold;
+	color: #aebed0;
 }
