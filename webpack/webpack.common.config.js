@@ -1,21 +1,11 @@
+const path = require("path");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 module.exports = {
-	devtool: "inline-source-map",
-	mode: "development",
-	entry: "./src/index.js",
-	devServer: {
-		contentBase: "./dist",
-		hot: true,
-	},
-	output: {
-		path: `${__dirname}/__build__`,
-		filename: "[name].[hash].js",
-		chunkFilename: "[name].[hash].chunk.js",
-		publicPath: "/",
-		globalObject: "this",
+	entry: {
+		entry: "./src/index.js",
 	},
 	plugins: [
 		new HtmlWebpackPlugin({
@@ -28,6 +18,13 @@ module.exports = {
 			chunkFilename: "[id].[hash].css",
 		}),
 	],
+	output: {
+		filename: "[name].bundle.js",
+		path: path.resolve(__dirname, "dist"),
+	},
+	resolve: {
+		extensions: [".js", ".jsx", ".css"],
+	},
 	module: {
 		rules: [
 			{
@@ -81,8 +78,5 @@ module.exports = {
 				],
 			},
 		],
-	},
-	resolve: {
-		extensions: [".js", ".jsx", ".css"],
 	},
 };
