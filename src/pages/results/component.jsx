@@ -5,6 +5,7 @@ import styles from "./styles";
 import Chart from "../../components/chart/component";
 import Title from "../../components/title/component";
 import CommentBox from "../../components/comment-box/component";
+import transformUtil from "../../utils/transform-data";
 
 /**
  * Results component to render comments
@@ -20,8 +21,17 @@ const Results = ({ comments = [] }) => (
 					<CommentBox key={comment.id} comment={comment} />
 				))}
 			</ul>
-			<div className={styles.graphWrapper}>
-				<Chart chartData={comments} />
+			<div>
+				<Chart
+					chartData={transformUtil.getReadableDate(comments)}
+					xAxisDataKey="commentDate"
+					areaDataKey="rating"
+				/>
+				<Chart
+					chartData={transformUtil.getTransformChartData(comments)}
+					xAxisDataKey="rating"
+					areaDataKey="count"
+				/>
 			</div>
 		</div>
 	</div>

@@ -15,8 +15,3 @@
 	max-height: 990px;
 	overflow: auto;
 }
-
-.graphWrapper {
-	display: flex;
-	flex-wrap: wrap;
-}
