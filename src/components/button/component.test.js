@@ -5,7 +5,7 @@ import renderer from "react-test-renderer";
 
 const props = {
 	buttonText: "Button title",
-	onClick: (noop) => noop,
+	onClick: jest.fn(),
 };
 
 function setup() {
@@ -22,5 +22,16 @@ describe("Button Component Test Suite", () => {
 	it("Should have a button", () => {
 		const { wrapper } = setup();
 		expect(wrapper.find("button").exists()).toBe(true);
+	});
+
+	it("should call onClick", () => {
+		const onClick = jest.fn();
+		const event = {
+			preventDefault() {},
+			target: { value: "the-value" },
+		};
+		const component = shallow(<Button buttonText="label" onClick={onClick} />);
+		component.find("button").simulate("click", event);
+		expect(onClick).toBeCalledWith(event);
 	});
 });

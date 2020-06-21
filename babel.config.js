@@ -11,7 +11,14 @@ module.exports = {
 		"@babel/plugin-transform-react-display-name",
 	],
 	presets: [
-		"@babel/preset-env",
+		[
+			"@babel/preset-env",
+			{
+				targets: {
+					esmodules: true,
+				},
+			},
+		],
 		[
 			"@babel/preset-react",
 			{
