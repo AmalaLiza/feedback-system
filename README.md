@@ -9,7 +9,7 @@ Download npm from [NPM](https://nodejs.org/en/) and follow the instructions
 
 ### Clone Project
 ```
-git clone https://github.com/AmalaLiza/trip-sorter.git
+git clone https://github.com/AmalaLiza/feedback-system.git
 ```
 
 ### Install Packages
