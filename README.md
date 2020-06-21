@@ -39,7 +39,7 @@ npm test
 To run tests with coverage:
 
 ```bash
-npm test:coverage
+npm run test:coverage
 ```
 
 ### Build
@@ -47,5 +47,5 @@ npm test:coverage
 To build the project:
 
 ```bash
-npm build
+npm run build
 ```
