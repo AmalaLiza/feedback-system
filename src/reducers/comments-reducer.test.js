@@ -41,7 +41,17 @@ const mockInitialState = [
 		rating: 5,
 		commentDate: 1576512737000,
 	},
+	{
+		id: 5,
+		name: "Benson",
+		email: "bbingley3@paypal.com",
+		comment:
+			"Pellentesque viverra pede ac consequat metus sapien ut  porttitor laere metus vitae ipsum. Aliquam non mauris.",
+		rating: 3,
+		commentDate: 1576512737000,
+	},
 ];
+
 describe("comments reducer", () => {
 	it("should return the initial state", () => {
 		expect(reducer(undefined, {})).toEqual(mockInitialState);

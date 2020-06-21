@@ -1,19 +1,12 @@
-import React, { PureComponent } from "react";
+import React from "react";
 import PropTypes from "prop-types";
-import {
-	AreaChart,
-	Area,
-	XAxis,
-	YAxis,
-	CartesianGrid,
-	Tooltip,
-} from "recharts";
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip } from "recharts";
 import styles from "./styles.css";
 
 /**
  * CustomTooltip component for charts.
  */
-const CustomTooltip = ({ payload = {}, xAxisDataKey, areaDataKey, active }) => {
+const CustomTooltip = ({ payload = {}, xAxisDataKey, barDataKey, active }) => {
 	if (active) {
 		return (
 			<>
@@ -21,7 +14,7 @@ const CustomTooltip = ({ payload = {}, xAxisDataKey, areaDataKey, active }) => {
 					{`${xAxisDataKey}: ${payload[0]?.payload?.[xAxisDataKey]}`}
 				</p>
 				<p className={styles.label}>
-					{`${areaDataKey}: ${payload[0]?.payload?.[areaDataKey]}`}
+					{`${barDataKey}: ${payload[0]?.payload?.[barDataKey]}`}
 				</p>
 			</>
 		);
@@ -31,10 +24,10 @@ const CustomTooltip = ({ payload = {}, xAxisDataKey, areaDataKey, active }) => {
 
 /**
  * Chart component
- * Props are chartData, xAxisDataKey, areaDataKey
+ * Props are chartData, xAxisDataKey, barDataKey
  */
-const Chart = ({ chartData, xAxisDataKey, areaDataKey }) => (
-	<AreaChart
+const BarGraph = ({ chartData, xAxisDataKey, barDataKey }) => (
+	<BarChart
 		width={500}
 		height={400}
 		data={chartData}
@@ -50,13 +43,13 @@ const Chart = ({ chartData, xAxisDataKey, areaDataKey }) => (
 		<YAxis ticks={[0, 1, 2, 3, 4, 5]} domain={[0, 5]} />
 		<Tooltip
 			content={
-				<CustomTooltip areaDataKey={areaDataKey} xAxisDataKey={xAxisDataKey} />
+				<CustomTooltip barDataKey={barDataKey} xAxisDataKey={xAxisDataKey} />
 			}
 		/>
-		<Area
+		<Bar
 			fillOpacity={0.8}
 			type="monotone"
-			dataKey={areaDataKey}
+			dataKey={barDataKey}
 			stroke="#f15c41"
 			fill="url(#colorUv)"
 		/>
@@ -71,10 +64,10 @@ const Chart = ({ chartData, xAxisDataKey, areaDataKey }) => (
 				/>
 			</linearGradient>
 		</defs>
-	</AreaChart>
+	</BarChart>
 );
 
-Chart.propTypes = {
+BarGraph.propTypes = {
 	/**
 	 * chartData: Data to be rendered in chart.
 	 */
@@ -84,9 +77,9 @@ Chart.propTypes = {
 	 */
 	xAxisDataKey: PropTypes.string.isRequired,
 	/**
-	 * areaDataKey: dataKey to be plotted as area.
+	 * barDataKey: dataKey to be plotted as bars.
 	 */
-	areaDataKey: PropTypes.string.isRequired,
+	barDataKey: PropTypes.string.isRequired,
 };
 
-export default Chart;
+export default BarGraph;

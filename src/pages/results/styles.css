@@ -15,3 +15,16 @@
 	max-height: 990px;
 	overflow: auto;
 }
+
+.graphWrapper {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.description {
+	font-weight: bold;
+	color: #e052a0;
+	padding-top: 10px;
+	padding-bottom: 15px;
+}

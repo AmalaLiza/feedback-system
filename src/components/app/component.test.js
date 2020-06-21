@@ -1,5 +1,4 @@
 import React from "react";
-import { shallow } from "enzyme";
 import App from "./component";
 import renderer from "react-test-renderer";
 import { HashRouter } from "react-router-dom";

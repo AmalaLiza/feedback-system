@@ -1,6 +1,6 @@
 import React from "react";
 import { shallow } from "enzyme";
-import Chart from "./component";
+import BarGraph from "./component";
 import renderer from "react-test-renderer";
 
 const props = {
@@ -12,22 +12,22 @@ const props = {
 		{ rating: 5, count: 2 },
 	],
 	xAxisDataKey: "rating",
-	areaDataKey: "count",
+	barDataKey: "count",
 };
 
 function setup() {
-	const wrapper = shallow(<Chart {...props} />);
+	const wrapper = shallow(<BarGraph {...props} />);
 	return { wrapper, props };
 }
 
-describe("Chart Component Test Suite", () => {
+describe("BarGraph Component Test Suite", () => {
 	it("renders correctly", () => {
-		const tree = renderer.create(<Chart {...props} />).toJSON();
+		const tree = renderer.create(<BarGraph {...props} />).toJSON();
 		expect(tree).toMatchSnapshot();
 	});
 
-	it("Should have an AreaChart", () => {
+	it("Should have an BarChart", () => {
 		const { wrapper } = setup();
-		expect(wrapper.find("AreaChart").exists()).toBe(true);
+		expect(wrapper.find("BarChart").exists()).toBe(true);
 	});
 });

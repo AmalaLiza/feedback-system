@@ -2,7 +2,8 @@ import React from "react";
 import { shallow } from "enzyme";
 import { Results } from "./component";
 import renderer from "react-test-renderer";
-import Chart from "../../components/chart/component";
+import BarGraph from "../../components/bar-graph/component";
+import AreaGraph from "../../components/area-graph/component";
 import CommentBox from "../../components/comment-box/component";
 
 const props = {
@@ -35,10 +36,12 @@ describe("Results Component Test Suite", () => {
 		expect(tree).toMatchSnapshot();
 	});
 
-	it("Should have an 2 Area Charts", () => {
+	it("Should have an 1 Area Chart and 1 Bar Chart", () => {
 		const { wrapper } = setup();
-		expect(wrapper.find(Chart).exists()).toBe(true);
-		expect(wrapper.find(Chart).length).toBe(2);
+		expect(wrapper.find(BarGraph).exists()).toBe(true);
+		expect(wrapper.find(BarGraph).length).toBe(1);
+		expect(wrapper.find(AreaGraph).exists()).toBe(true);
+		expect(wrapper.find(AreaGraph).length).toBe(1);
 	});
 
 	it("Should have an CommentBox length same as length of prop comments", () => {
