@@ -13,7 +13,7 @@ const initialState = [
 		id: 1,
 		name: "Renaldo",
 		email: "rsimonazzi0@wsj.com",
-		rating: 5,
+		rating: 2,
 		commentDate: 1545500795000,
 		comment:
 			"Etiam vel augue. Vestibulum rutrum rutrum neque. Aenean auctor gravida sem. Praesent  commodo vulputate, justo. In blandit ultscing elit.",
@@ -32,7 +32,7 @@ const initialState = [
 		email: "jflatte2@cdc.gov",
 		comment:
 			"Duis bibendum. Morbi non quam nec dui luctus rutrum. Nulla tellus. In sagittis dui vel nisl. Duis ac nibh.",
-		rating: 5,
+		rating: 3,
 		commentDate: 1545862134000,
 	},
 	{
@@ -41,7 +41,7 @@ const initialState = [
 		email: "bbingley3@paypal.com",
 		comment:
 			"Pellentesque viverra pede ac consequat metus sapien ut  porttitor laere metus vitae ipsum. Aliquam non mauris.",
-		rating: 4,
+		rating: 5,
 		commentDate: 1576512737000,
 	},
 ];
