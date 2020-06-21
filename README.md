@@ -18,8 +18,34 @@ cd feedback-system
 npm i
 ```
 
-### Building
-#### local
-```
+### Development
+
+To run project in developement mode:
+
+```bash
 npm start
+```
+
+### Testing
+
+To run tests:
+
+```bash
+npm test
+```
+
+### Testing with coverage
+
+To run tests with coverage:
+
+```bash
+npm test:coverage
+```
+
+### Build
+
+To build the project:
+
+```bash
+npm build
 ```
