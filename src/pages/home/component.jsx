@@ -12,7 +12,7 @@ import validate from "../../utils/validations";
  * Function component to access history object for router redirection
  * @param {onSubmitForm}
  */
-function HomeButton({ onSubmitForm }) {
+export function HomeButton({ onSubmitForm }) {
 	const history = useHistory(); //useHistory hooks to access historry object.
 
 	function onSubmit() {
@@ -27,7 +27,7 @@ function HomeButton({ onSubmitForm }) {
 /**
  * Home component
  */
-class Home extends Component {
+export class Home extends Component {
 	/**
 	 * Home component state
 	 */
@@ -74,7 +74,6 @@ class Home extends Component {
 		return (
 			<div className={styles.container}>
 				<Title title="GIVE US FEEDBACK" />
-
 				<Input
 					id="input"
 					type="input"
@@ -135,4 +134,5 @@ Home.propTypes = {
 	 */
 	onSubmitForm: PropTypes.func.isRequired,
 };
+
 export default withRouter(Home);

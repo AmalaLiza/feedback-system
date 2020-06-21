@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Input Component Test Suite renders correctly 1`] = `
+<div
+  className="container"
+>
+  <label
+    className="label"
+    htmlFor="label"
+  >
+    label
+  </label>
+  <input
+    className="input"
+    id="label"
+    onBlur={[Function]}
+    onChange={[Function]}
+    onFocus={[Function]}
+    placeholder="Type here"
+    type="text"
+    value=""
+  />
+</div>
+`;

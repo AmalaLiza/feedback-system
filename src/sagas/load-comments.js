@@ -17,7 +17,7 @@ export function* loadComments(action) {
 				email: payload.email,
 				comment: payload.comment,
 				rating: payload.rating,
-				commentDate: new Date().getTime(),
+				commentDate: payload.commentDate || new Date().getTime(),
 			})
 		);
 	} catch (error) {

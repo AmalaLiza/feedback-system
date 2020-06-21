@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { withRouter } from "react-router-dom";
-import styles from "./styles";
+import styles from "./styles.css";
 import Chart from "../../components/chart/component";
 import Title from "../../components/title/component";
 import CommentBox from "../../components/comment-box/component";
@@ -12,7 +12,7 @@ import transformUtil from "../../utils/transform-data";
  * CommentBox is used to render each comment.
  * @param {object} comments
  */
-const Results = ({ comments = [] }) => (
+export const Results = ({ comments = [] }) => (
 	<div className={styles.container}>
 		<Title title="COMMENTS AND TRENDS" />
 		<div className={styles.wrapper}>
