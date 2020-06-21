@@ -11,6 +11,7 @@ module.exports = {
 		"@babel/plugin-transform-react-display-name",
 	],
 	presets: [
+		"@babel/preset-env",
 		[
 			"@babel/preset-react",
 			{

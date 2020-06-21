@@ -1,0 +1,63 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CommentBox Component Test Suite renders correctly 1`] = `
+<li
+  className="commentSection"
+>
+  <header
+    className="header"
+  >
+    <div
+      className="avatar"
+    >
+      S
+    </div>
+    <span
+      className="name"
+    >
+      Sheldon Cooper
+    </span>
+    <div
+      className="metadata"
+    >
+      <div
+        className="commentDate"
+      >
+        Invalid Date
+      </div>
+      <div
+        className="commentDate"
+      >
+        <img
+          className="star"
+          src={
+            Object {
+              "process": [Function],
+            }
+          }
+        />
+        5
+      </div>
+    </div>
+  </header>
+  <div
+    className="commentContent"
+  >
+    <p
+      className="email"
+    >
+      <span
+        className="emailLabel"
+      >
+        E-mail 
+      </span>
+      <span>
+        jonaskahnwald@dark.anotherworld
+      </span>
+    </p>
+    <p>
+      The end is the beginning, and the beginning is the end.
+    </p>
+  </div>
+</li>
+`;
