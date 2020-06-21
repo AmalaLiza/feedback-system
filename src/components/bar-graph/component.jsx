@@ -42,6 +42,7 @@ const BarGraph = ({ chartData, xAxisDataKey, barDataKey }) => (
 		<XAxis dataKey={xAxisDataKey} />
 		<YAxis ticks={[0, 1, 2, 3, 4, 5]} domain={[0, 5]} />
 		<Tooltip
+			cursor={{ fill: "transparent" }}
 			content={
 				<CustomTooltip barDataKey={barDataKey} xAxisDataKey={xAxisDataKey} />
 			}
