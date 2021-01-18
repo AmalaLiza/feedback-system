@@ -5,17 +5,16 @@
 	margin: auto;
 	width: 1000px;
 	height: 800px;
-	background-color: #162d43;
 	border-radius: 15px;
 	overflow: hidden;
 	padding: 32px 100px 25px 100px;
 	box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);
 	justify-content: space-evenly;
-	margin-top: 150px;
+	margin-top: 150px; 
+    background-image: linear-gradient(to left, #194368, #0e1241);
 }
 
 .button {
-	background-image: linear-gradient(to right, #e052a0, #f15c41);
 	color: #fff;
 	cursor: pointer;
 	font-size: 17px;
@@ -24,7 +23,7 @@
 }
 
 .rating {
-	color: #e25398;
+	color: rgb(43, 212, 219);
 }
 
 .commentInput {

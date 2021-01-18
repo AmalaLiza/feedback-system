@@ -8,7 +8,7 @@ html,
 #root {
 	display: flex;
 	align-items: center;
-	background-color: #0f2439;
+	background-image: linear-gradient(to right, #0e1241, #194368);
 }
 
 body {
@@ -16,7 +16,6 @@ body {
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	color: #fff;
-	background-color: #0f253a;
 	font-size: 14px;
 	font-weight: 400;
 	letter-spacing: 0.012em;
