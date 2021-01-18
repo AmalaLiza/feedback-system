@@ -13,9 +13,7 @@
 		"url": "git+https://github.com/AmalaLiza/feedback-system.git"
 	},
 	"keywords": [
-		"react",
-		"redux",
-		"redux-saga"
+		"react"
 	],
 	"author": "Amala James",
 	"license": "ISC",
