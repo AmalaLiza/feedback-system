@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styles from "./styles.css";
 import Button from "../../components/button/component";
 import Input from "../../components/input/component";
-import { useHistory, withRouter } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import StarRating from "../../components/rating/component";
 import Title from "../../components/title/component";
 import validate from "../../utils/validations";
@@ -15,14 +15,12 @@ import { loadComments } from "../../reducers/comments-reducer";
  */
 export function HomeButton({ state }) {
   const dispatch = useDispatch();
-  const history = useHistory(); //useHistory hooks to access historry object.
 
   return (
     <Button
       buttonText="Submit"
       onClick={() => {
         dispatch(loadComments(state));
-        history.push("/results");
       }}
       className={styles.button}
     />

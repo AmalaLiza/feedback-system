@@ -1,8 +1,12 @@
 .button {
-	width: 250px;
-	height: 50px;
-	background-color: #ffffffe0;
-	text-transform: uppercase;
-	border-radius: 30px;
-	font-weight: bold;
+  width: 250px;
+  height: 50px;
+  background-color: #ffffffe0;
+  text-transform: uppercase;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
 }
+
